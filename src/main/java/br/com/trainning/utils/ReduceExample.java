@@ -1,6 +1,7 @@
 package br.com.trainning.utils;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ReduceExample {
@@ -14,5 +15,9 @@ public class ReduceExample {
 
     public static final String concatFromListString(List<String> items) {
         return items.stream().reduce("", (partialString, item) ->  partialString + item);
+    }
+
+    public static final BigDecimal sumFromListBigDecimal(List<BigDecimal> items) {
+        return items.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

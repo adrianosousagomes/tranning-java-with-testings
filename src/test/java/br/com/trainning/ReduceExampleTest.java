@@ -1,13 +1,12 @@
 package br.com.trainning;
 
 import br.com.trainning.utils.ReduceExample;
-import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ReduceExampleTest {
 
@@ -30,5 +29,12 @@ public class ReduceExampleTest {
         final List<String> items = Arrays.asList("1A", "99", "C30", "99A", "2A", "40W");
         String result = ReduceExample.concatFromListString(items);
         assertEquals("1A99C3099A2A40W", result);
+    }
+
+    @Test
+    public void sumFromListBigDecimalShouldReturnSum() {
+        final List<BigDecimal> items = Arrays.asList(new BigDecimal("100.11"), new BigDecimal("100.20"), new BigDecimal("100.68"));
+        BigDecimal result = ReduceExample.sumFromListBigDecimal(items);
+        assertEquals(new BigDecimal("300.99"), result);
     }
 }
